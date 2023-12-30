@@ -1,0 +1,7 @@
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/liqu_wiki?serverTimezone=Asia/Seoul
+    username: liqu_wiki
+    password: liqu1234
