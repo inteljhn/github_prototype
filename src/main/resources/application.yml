@@ -1,7 +1,78 @@
+# 2024-01-03. planthoon
+# application.yml
+# 스프링 부트 application의 모든 설정을 작성하는 설정파일.
+# 기존의 web.xml, root-context.xml, servlet-context.xml 등을 대체
+# 스터디를 위해 메타코딩에 블로그에서 제공하는 내용을 그대로 가져왔음.
+# (https://getinthere.tistory.com/20) 
 
+# 스프링부트 기본 핫디플로이는 설정파일도 핫디플로이 되는 것으로 보임..
+# 설정 막 바꾸면 알아서 서버 재기동되고 바로 반영됨
+
+#spring:
+#  datasource:
+#    driver-class-name: org.mariadb.jdbc.Driver
+#    url: jdbc:mariadb://localhost:3306/liqu_wiki?serverTimezone=Asia/Seoul
+#    username: liqu_wiki
+#    password: liqu1234 
+    
+server:
+  port: 8000 # 서버 포트 설정. default : 8080
+  servlet:
+    context-path: / # 웹 어플리케이션의 기본 패스 설정. default : /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    
+# view 페이지들의 프로젝트 내 기본 경로 설정
 spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
   datasource:
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+    #url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
+    #username: cos
+    #password: cos1234
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3306/liqu_wiki?serverTimezone=Asia/Seoul
     username: liqu_wiki
     password: liqu1234
+    
+  jpa:
+    # open-in-view: true : 영속성을 프리젠테이션 계층(view) 까지 가져가는 설정. 
+    # view, 컨트롤러에서 데이터 LAZY 로딩이 가능하도록 한다.
+    open-in-view: true  
+    hibernate:
+      # ddl-auto create : 프로그램 재기동 할때마다 테이블 재생성. 보통 최초에만 사용
+      # ddl-auto update : 기존 테이블 갱신. 테이블이 없으면 create 해줌.
+        # Entity에서 기존에 정의된 필드에 대해서 변경된 것은 바뀌지 않는다.
+        # Entity에서 특정 필드를 삭제해도 실제로 DB에서 삭제되지 않는다.
+        # Entity에서 특정 필드를 추가하면 실제로 DB에 추가된다.
+      #ddl-auto: none
+      #ddl-auto: create 
+      ddl-auto: update
+      naming:
+        # physical-strategy... PhysicalNamingStrategyStandardImpl : 엔티티(테이블)를 만들 때 변수명 그대로 DB에 컬럼을 생성함
+        # physical-strategy... CamelCaseToUnderscoresNamingStrategy : 카멜케이스 변수에 언더스코어를 넣음
+        #physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+      # 2024-01-03. planthoon
+      # 아래 use-new-id-generator-mappings 관련하여..
+      # 값을 true로 하면 jpa(Hibernate)가 사용하는 기본 넘버링 전략을 사용하겠다는 의미
+      # 스프링 부트 3.0.x 버전부터 지원하지 않게 되었다고 함.. (Deprecated)
+      # 기존에 true 사용시 뭔가 채번테이블 하나를 가지고 여러 테이블에서 사용하는 값을 채번하여
+      # 여러 테이블에서 각각의 채번을 할 수 없는 문제가 있었던 것으로 보임
+      #use-new-id-generator-mappings: false # Deprecated 되었다는 오류 발생하여 주석처리.
+    #show-sql: true # 콘솔창에 sql 로그 출력 여부를 결정하는 옵션
+    properties:
+      hibernate.format_sql: true # 콘솔창에 sql 로그 출력시 예쁘게 포매팅 해주는 옵션
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+      
+cos:
+  key: cos1234

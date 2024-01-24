@@ -21,14 +21,27 @@
 	<dependencies>
 		
 		<!-- 추가 라이브러리 -->
-		<!-- 시큐리티 태그 라이브러리 -->
-		<!--
+		<!-- 
+			Spring Security 태그 라이브러리.
+			아래 내용만 단독으로 사용하면 톰캣 실행시 에러 발생. spring-boot-starter-security를 함께 참조해야 함
+			만약 아래 내용만 주석 풀었다면 프로젝트 클린 이후 재실행
+		-->
 		<dependency>
 		  <groupId>org.springframework.security</groupId>
 		  <artifactId>spring-security-taglibs</artifactId>
 		</dependency>
-		-->
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
+		
 		<!-- JSP 템플릿 엔진 -->
+		<!--
+			2024-01-03. planthoon.
+			스프링 부트는 기본적으로 jsp를 서비스하지 않음.
+			jsp 사용을 위해서는 아래의 의존성 설정 필수 
+		-->
 		<dependency>
 		  <groupId>org.apache.tomcat.embed</groupId>
 		  <artifactId>tomcat-embed-jasper</artifactId>
@@ -38,12 +51,78 @@
 		</dependency>
 		
 		<!-- JSTL -->
+		<!--
 		<dependency>
 		  <groupId>javax.servlet</groupId>
 		  <artifactId>jstl</artifactId>
 		  <version>1.2</version>
 		</dependency>
+		-->
+		
+		<!--
+			java.lang.ClassNotFoundException: javax.servlet.jsp.tagext.TagLibraryValidator 오류가 발생하여 구글링한 결과
+			SpringBoot 3.0 이상부터는 jstl 1.2를 사용할 수 없다고 함.
+			아래의 새로운 버전으로 jstl 활용
+		-->
+		<!-- JSTL -->
+		<!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api -->
+		<dependency>
+			<groupId>jakarta.servlet.jsp.jstl</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+			<!--
+			<version>3.0.0</version>
+			-->
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<!--
+			<version>6.0.0</version>
+			-->
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.glassfish.web/jakarta.servlet.jsp.jstl -->
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
+			<!--
+			<version>3.0.1</version>
+			-->
+		</dependency>
+		
 		<!-- 추가 라이브러리 종료 -->
+		
+		
+		<!-- 인재훈 추가 라이브러리 시작 -->
+		<!-- 
+			하이버네이트에서 자동으로 테이블 create 할 떄 컬럼 순서를 코드 순서와 맞추기 위한 실험을 위해 의존성 추가
+			구글링한 내용 실험해 보았으나 생각처럼 작동하지 않아서 주석처리
+		-->
+		<!--
+		<dependency>
+		  <groupId>org.hibernate</groupId>
+		  <artifactId>hibernate-core</artifactId>
+		  <version>6.4.1.Final</version>
+		</dependency>
+		<dependency>
+		   <groupId>org.hibernate</groupId>
+		   <artifactId>hibernate-commons-annotations</artifactId>
+		   <version>3.1.0.GA</version>
+		</dependency>
+		-->
+		<!-- https://mvnrepository.com/artifact/org.jboss.logging/jboss-logging -->
+		<!--
+		<dependency>
+		    <groupId>org.jboss.logging</groupId>
+		    <artifactId>jboss-logging</artifactId>
+		    <version>3.5.3.Final</version>
+		</dependency>
+		-->
+		<!-- 인재훈 추가 라이브러리 종료 -->
+		
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -53,12 +132,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
 		<!--
+			Spring Security
+			아래 내용 참조가 활성화 되면 웹사이트 접근시 자동으로 로그인(/login) 화면으로 이동.
+			기본적인 로그인 화면은 Spring Security에서 제공된다!
+		-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		-->
+		
+		
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
