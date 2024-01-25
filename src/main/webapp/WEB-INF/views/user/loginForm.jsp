@@ -2,7 +2,7 @@
 
 <%@ include file="../layout/header.jsp"%>
 
-<div class="container-fluid mt-3">
+<div class="container">
 
 	로그인
 

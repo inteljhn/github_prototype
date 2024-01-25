@@ -40,7 +40,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class UserController {
 
 	// application.yml에 작성한 값을 가져옴
-	@Value("${cos.key}")
+	@Value("${oauth.masterKey}")
 	private String COS_KEY;
 	
 	@Autowired

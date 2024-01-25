@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+
+
+### 비공개 파일들 추가
+application_secu.yml

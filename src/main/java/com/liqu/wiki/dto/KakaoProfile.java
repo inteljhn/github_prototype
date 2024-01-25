@@ -1,8 +1,11 @@
 package com.liqu.wiki.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class KakaoProfile {
 	public Long id;
 	//public String connectedAt;

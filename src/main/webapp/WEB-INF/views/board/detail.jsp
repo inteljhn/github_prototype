@@ -2,10 +2,17 @@
 
 <%-- 아래 include 경로 상대경로로 찾아야 함 --%>
 <%@ include file="../layout/header.jsp"%>
+<style type="text/css">
 
-<%--
-	<div class="container-fluid mt-3">
-	--%>
+
+#divContent img {
+  max-width: 100%;
+  height: auto;
+}
+
+	
+
+</style>
 <div class="container">
 	<button class="btn btn-secondary" onclick="history.back()">돌아가기</button>
 
@@ -32,7 +39,9 @@
 	<hr />
 
 	<div class="mb-3">
-		<div>${board.content}</div>
+		<div id="divContent">
+			${board.content}
+		</div>
 	</div>
 
 	<hr />
