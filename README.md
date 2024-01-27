@@ -23,6 +23,8 @@
 - Open JDK 21
 - STS
 - Maven
+- DBeaver
+- Postman
 
 ### TODO
 - 이용시간 요금 계산기 개발
