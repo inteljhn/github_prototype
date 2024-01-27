@@ -15,6 +15,7 @@
   - ~~MyBatis~~
   - logback 로깅
   - Quartz 스케줄러
+
 - Frontend
   - Bootstrap 5
   - Summernote
