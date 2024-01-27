@@ -19,5 +19,4 @@ public class LiquWikiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LiquWikiApplication.class, args);
 	}
-
 }

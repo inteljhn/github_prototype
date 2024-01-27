@@ -73,3 +73,11 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+      
+# Spring Batch Job enable
+  #batch:
+    #job:
+      #enabled: true
+    #jdbc:
+      #initialize-schema: always
+      #initialize-schema: never

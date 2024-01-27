@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.liqu.wiki.dto.ResponseDto;
 
-
-@ControllerAdvice // @ControllerAdvice : 모든 익셉션이 발생했을 때 이 컨트롤러가 핸들링하게 하는 어노테이션 이라고 함..
+/**
+ * Global Exception Handler
+ * 레이어와 관계없이 메소드에 별도로 throws 작성하지 않으면 Exception 발생시 이 클래스에서 핸들링함 
+ */
+@ControllerAdvice
 @RestController
 public class GlobalExceptionHandler {
 
@@ -17,11 +20,17 @@ public class GlobalExceptionHandler {
 	//public String handleArgumentException(IllegalArgumentException e) {
 	//public String handleArgumentException(Exception e) {
 	public ResponseDto<String> handleArgumentException(Exception e) {
-		
-		System.out.println("GlobalExceptionHandler Run !!");
+		System.out.println("GlobalExceptionHandler Run Exception !!");
 		
 		//return "<h1>" + e.getMessage() + "</h1>";
 		
 		return new ResponseDto<String>(HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage());
+	}
+	
+	@ExceptionHandler(value = IllegalArgumentException.class)
+	public ResponseDto<String> handleArgumentException(IllegalArgumentException e) {
+		System.out.println("GlobalExceptionHandler Run IllegalArgumentException !!");
+		
+		return new ResponseDto<String>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "IllegalArgumentException !!! : " + e.getMessage());
 	}
 }

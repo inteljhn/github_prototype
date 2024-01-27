@@ -3,7 +3,7 @@
 <%-- 아래 include 경로 상대경로로 찾아야 함 --%>
 <%@ include file="../layout/header.jsp" %>
 
-	<div class="container-fluid mt-3">
+	<div class="container">
 		글 수정 화면
 		<form action="/auth/loginProc" method="POST">
 		

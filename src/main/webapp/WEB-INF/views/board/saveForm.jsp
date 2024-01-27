@@ -52,7 +52,7 @@
 </style>
 
 
-	<div class="container-fluid mt-3">
+	<div class="container">
 		글쓰기 화면
 		<form action="/auth/loginProc" method="POST">
 		<div class="mb-3 mt-3">

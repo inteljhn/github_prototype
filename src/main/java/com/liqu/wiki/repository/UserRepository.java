@@ -24,6 +24,7 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	// JPQ Query Method
 	// Select * from user WHERE userName = 1?;
 	Optional<User> findByUserName(String userName);
+	
 
 	// 2024-01-13. planthoon. TODO
 	// 아래와 findByUserNameAndPassword(), login() 메소드와 같이 

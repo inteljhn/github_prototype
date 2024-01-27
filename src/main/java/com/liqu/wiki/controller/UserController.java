@@ -39,7 +39,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @Controller
 public class UserController {
 
-	// application.yml에 작성한 값을 가져옴
+	// application_secu.yml에 작성한 값을 가져옴
 	@Value("${oauth.masterKey}")
 	private String COS_KEY;
 	
@@ -199,7 +199,6 @@ public class UserController {
 			.email(kakaoProfile.getKakao_account().getEmail())
 			.oauth("kakao")
 			.build();
-		
 		
 		// 3. 기존 가입자 체크하고, 기존 회원이 아니면 회원가입 처리
 		User originUser = userService.회원찾기(kakaoUser.getUserName());

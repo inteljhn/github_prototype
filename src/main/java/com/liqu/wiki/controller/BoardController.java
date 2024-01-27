@@ -59,4 +59,14 @@ public class BoardController {
 		
 		return "board/updateForm";
 	}
+	
+	@GetMapping("/board/list")
+	public String boardList(
+		Model model,
+		@PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable
+	){
+		model.addAttribute("boards", boardService.글목록(pageable));
+		
+		return "board/list";
+	}
 }

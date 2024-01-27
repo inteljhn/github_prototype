@@ -38,7 +38,7 @@ let board = {
 		}).done(function(resp){
 			alert("글쓰기가 완료되었습니다.");
 			console.log(resp);
-			location.href = "/";
+			location.href = "/board/list";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});

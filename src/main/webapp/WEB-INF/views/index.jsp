@@ -19,7 +19,7 @@
 	<div class="row mb-3">
 		<div class="col-md-6">
 			<div class="card row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
-				<div class="card-header">Liquor Wiki</div>
+				<div class="card-header">취미생활</div>
 				<div class="card-body" style="min-height:155px; max-height:155px;">
 					<div class="list-group">
 						<%--
@@ -27,9 +27,9 @@
 							<a href="/board/${board.id}" class="list-group-item list-group-item-action">${board.title}</a>
 						</c:forEach>
 						--%>
-						<a href="#" class="list-group-item list-group-item-action">조니워커 블랙</a>
-						<a href="#" class="list-group-item list-group-item-action">라가불린 16</a>
-						<a href="#" class="list-group-item list-group-item-action">레미 마틴 VSOP</a>
+						<a href="#" class="list-group-item list-group-item-action">축구</a>
+						<a href="#" class="list-group-item list-group-item-action">자전거</a>
+						<a href="#" class="list-group-item list-group-item-action">여행</a>
 					</div>
 				</div>
 			</div>
@@ -37,7 +37,13 @@
 
 		<div class="col-md-6">
 			<div class="card row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
-				<div class="card-header">자유게시판</div>
+			
+				<div class="card-header">
+					<a href="/board/list" class="card-text" >					
+					자유게시판
+					</a>	
+				</div>
+				
 				<div class="card-body" style="min-height:155px; max-height:155px;">
 					<div class="list-group">
 						<c:forEach var="board" items="${boards.content}">

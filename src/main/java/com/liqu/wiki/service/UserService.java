@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.liqu.wiki.dto.JoinReqDto;
 import com.liqu.wiki.entity.RoleType;
 import com.liqu.wiki.entity.User;
 import com.liqu.wiki.repository.UserRepository;
@@ -31,16 +32,23 @@ public class UserService {
 	//@Autowired
 	//private AuthenticationManager authenticationManager;
 	
+	
+	public void dummyTest(User user) {
+		throw new IllegalArgumentException("고의 에러 발생");
+	}
+	
 	@Transactional
 	//public int 회원가입(User user) {
-	public void 회원가입(User user) {
-		
-		String rawPassword = user.getPassword(); 			// password 원문
+	//public void 회원가입(User user) {
+	public void 회원가입(JoinReqDto joinReqDto) {
+		String rawPassword = joinReqDto.getPassword(); 			// password 원문
 		String encPassword = encoder.encode(rawPassword); 	// 해쉬된 password
 		
+		User user = new User();
+		user.setUserName(joinReqDto.getUserName());
 		user.setRole(RoleType.USER); 	
-		user.setPassword(encPassword); 	
-		
+		user.setPassword(encPassword);
+		user.setEmail(joinReqDto.getEmail());
 		
 		/*
 		try {
@@ -55,6 +63,17 @@ public class UserService {
 		return -1;
 		*/
 		
+		userRepository.save(user);
+	}
+	
+	@Transactional
+	public void 회원가입(User user) {
+		String rawPassword = user.getPassword(); 			// password 원문
+		String encPassword = encoder.encode(rawPassword); 	// 해쉬된 password
+		
+		user.setRole(RoleType.USER); 	
+		user.setPassword(encPassword); 	
+
 		userRepository.save(user);
 	}
 	

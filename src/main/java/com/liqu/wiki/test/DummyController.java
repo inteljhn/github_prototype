@@ -22,6 +22,7 @@ import com.liqu.wiki.entity.User;
 import com.liqu.wiki.repository.BoardRepository;
 import com.liqu.wiki.repository.ReplyRepository;
 import com.liqu.wiki.repository.UserRepository;
+import com.liqu.wiki.service.UserService;
 
 import jakarta.transaction.Transactional;
 
@@ -38,10 +39,16 @@ public class DummyController {
 	
 	@Autowired
 	private ReplyRepository replyRepository;
+
+	@Autowired
+	private UserService userService;
 	
 	@GetMapping("/dummy/users")
 	public List<User> list(){
 		// 전체 데이터 가져오기
+		
+		//userService.dummyTest(null);
+		
 		return userRepository.findAll();
 	}
 	
@@ -57,8 +64,6 @@ public class DummyController {
 		}catch(EmptyResultDataAccessException e) {
 			return "존재하지 않는 ID";
 		}
-		
-		
 		
 		return "삭제되었습니다. id : " + id;
 	}

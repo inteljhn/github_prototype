@@ -58,19 +58,19 @@ let index = {
 			
 			
 		}).done(function(resp){
+			// -> done : 회원가입 수행 요청에 대한 응답이 돌아오면 실행
 			
-			if(resp.status === 500){
-				alert("서버 에러입니다.");
-			}else{
-				// done : 회원가입 수행 요청에 대한 응답이 돌아오면 실행
+			if(resp.status === 200){
 				alert("회원가입이 완료되었습니다.");
+				location.href = "/";
+			}else{
+				alert("에러입니다.");
 				console.log(resp);
-				location.href = "/";	
 			}
 			
 			
 		}).fail(function(error){
-			// fail : 회원가입 수행 요청 결과가 실패인 경우 실행
+			// -> fail : 회원가입 수행 요청 결과가 실패인 경우 실행
 			alert(JSON.stringify(error));
 		});
 	},

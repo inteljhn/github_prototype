@@ -1,0 +1,39 @@
+[2024-01-27 01:33:48:445002][http-nio-8000-exec-1] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : email, message : 이메일을 입력하세요.
+[2024-01-27 01:33:48:445003][http-nio-8000-exec-1] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : userName, message : 유저네임 길이를 초과하였습니다. (최대 20)
+[2024-01-27 01:33:48:445004][http-nio-8000-exec-1] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : password, message : 패스워드를 입력하세요.
+[2024-01-27 01:34:12:468717][http-nio-8000-exec-2] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : password, message : 패스워드를 입력하세요.
+[2024-01-27 01:34:12:468717][http-nio-8000-exec-2] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : email, message : 이메일을 입력하세요.
+[2024-01-27 01:34:12:468717][http-nio-8000-exec-2] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : userName, message : 유저네임 길이를 초과하였습니다. (최대 20)
+[2024-01-27 01:34:38:495103][http-nio-8000-exec-3] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : password, message : 패스워드를 입력하세요.
+[2024-01-27 01:34:38:495103][http-nio-8000-exec-3] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : userName, message : 유저네임 길이를 초과하였습니다. (최대 20)
+[2024-01-27 01:34:38:495103][http-nio-8000-exec-3] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : email, message : 이메일을 입력하세요.
+[2024-01-27 01:34:39:496130][http-nio-8000-exec-4] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : userName, message : 유저네임 길이를 초과하였습니다. (최대 20)
+[2024-01-27 01:34:39:496130][http-nio-8000-exec-4] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : password, message : 패스워드를 입력하세요.
+[2024-01-27 01:34:39:496130][http-nio-8000-exec-4] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : email, message : 이메일을 입력하세요.
+[2024-01-27 01:34:40:496944][http-nio-8000-exec-5] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : userName, message : 유저네임 길이를 초과하였습니다. (최대 20)
+[2024-01-27 01:34:40:496944][http-nio-8000-exec-5] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : password, message : 패스워드를 입력하세요.
+[2024-01-27 01:34:40:496944][http-nio-8000-exec-5] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : email, message : 이메일을 입력하세요.
+[2024-01-27 01:59:59:2015973][http-nio-8000-exec-1] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : password, message : 패스워드를 입력하세요.
+[2024-01-27 01:59:59:2015974][http-nio-8000-exec-1] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : userName, message : 유저네임 길이를 초과하였습니다. (최대 20)
+[2024-01-27 01:59:59:2015974][http-nio-8000-exec-1] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : email, message : 이메일을 입력하세요.
+[2024-01-27 02:00:00:2017026][http-nio-8000-exec-2] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : email, message : 이메일을 입력하세요.
+[2024-01-27 02:00:00:2017026][http-nio-8000-exec-2] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : userName, message : 유저네임 길이를 초과하였습니다. (최대 20)
+[2024-01-27 02:00:00:2017026][http-nio-8000-exec-2] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : password, message : 패스워드를 입력하세요.
+[2024-01-27 02:00:02:2018484][http-nio-8000-exec-3] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : email, message : 이메일을 입력하세요.
+[2024-01-27 02:00:02:2018484][http-nio-8000-exec-3] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : userName, message : 유저네임 길이를 초과하였습니다. (최대 20)
+[2024-01-27 02:00:02:2018484][http-nio-8000-exec-3] WARN  com.liqu.wiki.config.BindingAdvice - bindingResult.hasErrors() : com.liqu.wiki.controller.api.UserApiController.save() => 필드 : password, message : 패스워드를 입력하세요.
+[2024-01-27 11:47:50:33133][restartedMain] WARN  com.liqu.wiki.config.BatchConfig - This is Step1 !!!!! WARN !!!!
+[2024-01-27 11:48:29:72778][restartedMain] WARN  com.liqu.wiki.config.BatchConfig - This is Step1 !!!!! WARN !!!!
+[2024-01-27 11:48:32:75855][restartedMain] WARN  com.liqu.wiki.config.BatchConfig - This is Step1 !!!!! WARN !!!!
+[2024-01-27 11:48:48:91471][restartedMain] WARN  com.liqu.wiki.config.BatchConfig - This is Step1 !!!!! WARN !!!!
+[2024-01-27 11:49:04:107078][restartedMain] WARN  com.liqu.wiki.config.BatchConfig - This is Step1 !!!!! WARN !!!!
+[2024-01-27 11:49:18:121582][restartedMain] WARN  com.liqu.wiki.config.BatchConfig - This is Step1 !!!!! WARN !!!!
+[2024-01-27 11:49:24:127746][restartedMain] WARN  com.liqu.wiki.config.BatchConfig - This is Step1 !!!!! WARN !!!!
+[2024-01-27 11:49:27:130519][http-nio-8000-exec-1] WARN  com.liqu.wiki.config.BindingAdvice - aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+[2024-01-27 11:50:09:172016][restartedMain] INFO  com.liqu.wiki.LiquWikiApplication - Starting LiquWikiApplication using Java 21.0.1 with PID 9260 (C:\work\liqu_wiki\workspace\liqu_wiki\target\classes started by inteljhn in C:\work\liqu_wiki\workspace\liqu_wiki)
+[2024-01-27 11:50:09:172017][restartedMain] INFO  com.liqu.wiki.LiquWikiApplication - No active profile set, falling back to 1 default profile: "default"
+[2024-01-27 11:50:10:173074][restartedMain] INFO  com.liqu.wiki.config.BatchConfig - This is Step1 !!!!!
+[2024-01-27 11:50:10:173074][restartedMain] WARN  com.liqu.wiki.config.BatchConfig - This is Step1 !!!!! WARN !!!!
+[2024-01-27 11:50:10:173575][restartedMain] INFO  com.liqu.wiki.LiquWikiApplication - Started LiquWikiApplication in 1.583 seconds (process running for 174.134)
+[2024-01-27 11:50:12:175772][http-nio-8000-exec-1] INFO  com.liqu.wiki.config.BindingAdvice - ??????????????????????????????????????
+[2024-01-27 11:50:12:175772][http-nio-8000-exec-1] WARN  com.liqu.wiki.config.BindingAdvice - aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
