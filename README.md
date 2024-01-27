@@ -5,7 +5,7 @@
   - 본문에 이미지 첨부 가능한 글쓰기
 
 ### 기술 스택
--Backend
+- Backend
   - Spring Boot 3.2.1
     - REST API
   - Spring Security 6.2.1
