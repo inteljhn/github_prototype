@@ -1,5 +1,7 @@
 package com.liqu.wiki.controller.api;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -18,65 +20,77 @@ import com.liqu.wiki.service.BoardService;
 
 @RestController
 public class BoardApiController {
-	
+	private static final Logger log = LoggerFactory.getLogger(BoardApiController.class);
+
 	@Autowired
 	private BoardService boardService; 
 	
+	/**
+	 * 글 등록
+	 * 
+	 * @param board
+	 * @param principal
+	 * @return
+	 */
 	@PostMapping("/api/board")
-	public ResponseDto<Integer> save(
-		@RequestBody Board board,
-		@AuthenticationPrincipal PrincipalDetail principal
-	) {
-		System.out.println("BoardApiController.save() run !!");
-		boardService.글쓰기(board, principal.getUser());
+	public ResponseDto<Integer> regBoard(@RequestBody Board board, @AuthenticationPrincipal PrincipalDetail principal) {
+		log.debug("BoardApiController.regBoard() run..");
+		
+		boardService.regBoard(board, principal.getUser());
 		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
-	
 
+	/**
+	 * 글 삭제
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("/api/board/{id}")
-	public ResponseDto<Integer> deleteById(@PathVariable int id) {
-		System.out.println("BoardApiController.deleteById() run !!");
+	public ResponseDto<Integer> delBoardById(@PathVariable int id) {
+		log.debug("BoardApiController.delBoardById() run..");
 		
-		//model.addAttribute("board", boardService.글상세보기(id));
-		boardService.글삭제(id);
+		boardService.delBoardById(id);
 		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
-	
 	
 	@PutMapping("/api/board/{id}")
-	public ResponseDto<Integer> update(
-		@PathVariable int id,
-		@RequestBody Board board
-		//@AuthenticationPrincipal PrincipalDetail principal
-	) {
-		System.out.println("BoardApiController.update() run !!");
-		boardService.글수정(id, board);
+	public ResponseDto<Integer> updBoard(@PathVariable int id, @RequestBody Board board) {
+		log.debug("BoardApiController.updBoard() run..");
+		
+		boardService.updBoard(id, board);
 		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
 	
-	// 데이터 받을 때 Entity를 그냥 받는게 아니고.. 컨트롤러에서 dto를 만들어서 받는게 좋다.
-	// 강의 진행간 dto를 사용하지 않은 이유는.. 프로젝트가 작기 때문에..
+	/**
+	 * 댓글 등록
+	 * 
+	 * @param replySaveRequestDto
+	 * @return
+	 */
 	@PostMapping("/api/board/{boardId}/reply")
-	/*
-	public ResponseDto<Integer> replySave(
-		@PathVariable int boardId,
-		@RequestBody Reply reply,
-		@AuthenticationPrincipal PrincipalDetail principal
-	) {
-	*/
-	public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto){
-		//boardService.댓글쓰기(principal.getUser(), boardId, reply);
-		boardService.댓글쓰기(replySaveRequestDto);
+	public ResponseDto<Integer> regReply(@RequestBody ReplySaveRequestDto replySaveRequestDto){
+		log.debug("BoardApiController.regReply() run..");
+		
+		boardService.regReply(replySaveRequestDto);
 		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
 	
+	/**
+	 * 댓글 삭제
+	 * 
+	 * @param replyId
+	 * @return
+	 */
 	@DeleteMapping("/api/board/{boardId}/reply/{replyId}")
-	public ResponseDto<Integer> replyDelete(@PathVariable int replyId){
-		boardService.댓글삭제(replyId);
+	public ResponseDto<Integer> delReply(@PathVariable int replyId){
+		log.debug("BoardApiController.delReply() run..");
+		
+		boardService.delReply(replyId);
 		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}

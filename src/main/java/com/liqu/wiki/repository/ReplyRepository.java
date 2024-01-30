@@ -9,6 +9,7 @@ import com.liqu.wiki.entity.Reply;
 public interface ReplyRepository extends JpaRepository<Reply, Integer>{
 
 	/**
+	 * reply 테이블 insert
 	 * 
 	 * @param userId
 	 * @param boardId
@@ -17,5 +18,5 @@ public interface ReplyRepository extends JpaRepository<Reply, Integer>{
 	 */
 	@Modifying
 	@Query(value="INSERT INTO reply (user_Id, board_Id, content, create_Date) values (?1, ?2, ?3, now())", nativeQuery = true)
-	int mSave(int userId, int boardId, String content);
+	int insertReply(int userId, int boardId, String content);
 }

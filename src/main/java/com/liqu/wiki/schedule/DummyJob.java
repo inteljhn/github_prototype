@@ -15,15 +15,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
 import lombok.AllArgsConstructor;
 
 /**
  * Job 구현체. excute() 메소드에 실행할 작업 내용을 작성
  */
-//@Configuration
-@Component
+@Configuration
+//@Component
 @AllArgsConstructor
 public class DummyJob implements Job {
 

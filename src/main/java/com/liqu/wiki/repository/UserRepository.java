@@ -15,7 +15,6 @@ import com.liqu.wiki.entity.User;
  * findBy + 컬럼명 + 컬럼명. 파스칼 형식
  * 
  */
-
 // JpaRepository 두번째 인자는 User의 PK 타입
 // JpaRepository를 상속 받음으로서 기본적인 CRUD 함수를 사용할 수 있음. DAO 클래스와 유사한 개념.
 // 자동으로 bean으로 등록 됨.(Ioc). @Repository 생략 가능

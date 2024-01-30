@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class JoinReqDto {
-	@NotNull(message = "유저네임 키값이 없습니다.")
-	@NotBlank(message = "유저네임을 입력하세요.")
-	@Size(max = 20, message = "유저네임 길이를 초과하였습니다. (최대 20)")
+	@NotNull(message = "사용자명 값이 없습니다.")
+	@NotBlank(message = "사용자명을 입력하세요.")
+	@Size(max = 20, message = "사용자명 길이를 초과하였습니다(최대 20자리).")
 	private String userName;
 	
 	@NotNull(message = "패스워드값이 없습니다.")

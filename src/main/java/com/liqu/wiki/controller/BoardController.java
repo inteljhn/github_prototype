@@ -17,14 +17,16 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 
-	// 컨트롤러 메소드에서 세션을 찾기 위해서는 매개변수에 @AuthenticationPrincipal 타입 변수를 추가
+	/**
+	 * 인덱스 페이지 호출
+	 * 2024-01-31. planthoon. TODO - 인덱스 페이지 멀티 목록 구현
+	 * 
+	 * @param model
+	 * @param pageable
+	 * @return
+	 */
 	@GetMapping({"", "/"})
-	//public String index() {
-	//public String index(@AuthenticationPrincipal PrincipalDetail principal) {
-	public String index(
-		Model model,
-		@PageableDefault(size = 3, sort = "id", direction = Sort.Direction.DESC) Pageable pageable
-	) {
+	public String index(Model model, @PageableDefault(size = 3, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
 		
 		/*
 		if(principal != null) {
@@ -36,36 +38,58 @@ public class BoardController {
 		
 		// @Controller의 메소드가 return 될때 viewResolver 작동.
 		// model에 담은 객체는 view까지 전달됨
-		model.addAttribute("boards", boardService.글목록(pageable));
+		model.addAttribute("boards", boardService.getListAllBoard(pageable));
 		
 		return "index";
 	}
 	
+	/**
+	 * 글 작성 화면 호출 
+	 * @return
+	 */
 	@GetMapping("/board/saveForm")
 	public String saveForm() {
 		return "board/saveForm";
 	}
 	
+	/**
+	 * 글 세부정보 화면 호출
+	 * 
+	 * @param id
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/board/{id}")
 	public String findById(@PathVariable int id, Model model) {
-		model.addAttribute("board", boardService.글상세보기(id));
+		model.addAttribute("board", boardService.getDetailBoard(id));
 		
 		return "board/detail";
 	}
 	
+	/**
+	 * 글 수정 화면 호출
+	 * 
+	 * @param id
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/board/{id}/updateForm")
 	public String updateForm(@PathVariable int id, Model model) {
-		model.addAttribute("board", boardService.글상세보기(id));
+		model.addAttribute("board", boardService.getDetailBoard(id));
 		
 		return "board/updateForm";
 	}
 	
+	/**
+	 * 글 목록 화면 호출
+	 * 
+	 * @param model
+	 * @param pageable
+	 * @return
+	 */
 	@GetMapping("/board/list")
-	public String boardList(
-		Model model,
-		@PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable
-	){
-		model.addAttribute("boards", boardService.글목록(pageable));
+	public String boardList(Model model, @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable){
+		model.addAttribute("boards", boardService.getListAllBoard(pageable));
 		
 		return "board/list";
 	}

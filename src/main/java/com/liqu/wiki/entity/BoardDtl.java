@@ -1,7 +1,5 @@
 package com.liqu.wiki.entity;
 
-import java.util.List;
-
 import org.hibernate.annotations.ColumnDefault;
 
 import jakarta.persistence.Column;
@@ -10,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,7 +29,7 @@ public class BoardDtl extends BaseEntity{
 	private String title;
 
 	// 섬머노트 라이브러리 사용하여 <html> 태그를 섞어서 디자인 되도록 할 예정
-	// Lob : 대용량 데이터
+	// Lob : 대용량 데이터. mariaDB에서 tinytext로 기본 생성됨.
 	@Lob 
 	private String content;
 	
@@ -52,7 +49,7 @@ public class BoardDtl extends BaseEntity{
 	@Column(nullable = false)
 	private int userId;
 	
-	// mappedBy = 연관관계의 주인이 아니다. FK 컬럼을 생성하지 않는다.
+	// mappedBy = 연관관계의 주인이 아님. FK 컬럼을 생성하지 않는다.
 	//@OneToMany(mappedBy = "board")
 	//private List<ReplyDtl> reply;
 }

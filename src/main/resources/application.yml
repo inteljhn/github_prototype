@@ -2,8 +2,6 @@
 # application.yml
 # 스프링 부트 application의 모든 설정을 작성하는 설정파일.
 # 기존의 web.xml, root-context.xml, servlet-context.xml 등을 대체
-# 스터디를 위해 메타코딩에 블로그에서 제공하는 내용을 그대로 가져왔음.
-# (https://getinthere.tistory.com/20) 
 
 # 스프링부트 기본 핫디플로이는 설정파일도 핫디플로이 되는 것으로 보임..
 # 설정 막 바꾸면 알아서 서버 재기동되고 바로 반영됨

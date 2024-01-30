@@ -13,8 +13,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,14 +33,8 @@ public class UserInfo extends BaseEntity{
 	
 	@Column(nullable = false, length = 50)
 	private String email;
-	
-	// 메타코딩 참고..
-	// 권한 같은 사전에 값이 정해질 수 있는 코드성 필드는 
-	// Enum을 쓰는게 좋다고 제안하고 있음
-	// admin, user manager ... 등을 enum으로 구현하여 필드의 도메인(데이터의 범위) 설정을 해줄 수 있으므로
-	// 오타 방지 등위 이유를 위해 enum으로 구현하는게 좋지 않겠냐고 함.
+
+	// 2024-01-31. planthoon. TODO - enum 전환 검토
 	@ColumnDefault("'user'")
 	private String role;
-	
-	
 }

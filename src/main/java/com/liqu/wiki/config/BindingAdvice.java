@@ -27,7 +27,6 @@ import jakarta.servlet.http.HttpServletRequest;
 @Component
 @Aspect
 public class BindingAdvice {
-
 	private static final Logger log = LoggerFactory.getLogger(BindingAdvice.class);
 	
 	/**

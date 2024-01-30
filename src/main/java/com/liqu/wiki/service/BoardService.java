@@ -24,26 +24,43 @@ public class BoardService {
 	@Autowired
 	private ReplyRepository replyRepository;
 	
-	@Autowired
-	private UserRepository userRepository;
+	//@Autowired
+	//private UserRepository userRepository;
 	
-	
+	/**
+	 * 게시글 등록
+	 * 
+	 * @param board
+	 * @param user
+	 */
 	@Transactional
-	public void 글쓰기(Board board, User user) {
+	public void regBoard(Board board, User user) {
 		board.setCount(0);
 		board.setUser(user);
 		
 		boardRepository.save(board);
 	}
 	
+	/**
+	 * 전체 게시글 가져오기 
+	 * 
+	 * @param pageable
+	 * @return
+	 */
 	@Transactional(readOnly = true)
-	//public List<Board> 글목록() {
-	public Page<Board> 글목록(Pageable pageable) {
+	//public List<Board> getListAllBoard() {
+	public Page<Board> getListAllBoard(Pageable pageable) {
 		return boardRepository.findAll(pageable);
 	}
 	
+	/**
+	 * 게시글 상세정보 가져오기
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@Transactional(readOnly = true)
-	public Board 글상세보기(int id){
+	public Board getDetailBoard(int id){
 		
 		return 
 			boardRepository.findById(id).orElseThrow(()->{
@@ -51,13 +68,24 @@ public class BoardService {
 			});
 	}
 	
+	/**
+	 * 게시글 삭제
+	 * 
+	 * @param id
+	 */
 	@Transactional
-	public void 글삭제(int id) {
+	public void delBoardById(int id) {
 		boardRepository.deleteById(id);
 	}
 	
+	/**
+	 * 게시글 수정 저장
+	 * 
+	 * @param id
+	 * @param reqBoard
+	 */
 	@Transactional
-	public void 글수정(int id, Board reqBoard) {
+	public void updBoard(int id, Board reqBoard) {
 		Board board = boardRepository.findById(id).orElseThrow(()->{
 			return new IllegalArgumentException("해당 글 ID를 찾을 수 없습니다.");
 		}); // Board 영속화
@@ -70,11 +98,18 @@ public class BoardService {
 		//boardRepository.save(board);
 	}
 	
-	// 2024-01-22. planthoon. 
-	// TODO - 강좌에서는 user 정보까지 dto로 넘겨받아서 처리하는 방법을 알려주었으나, 보안적으로 문제가 될 수 있으므로 사용자 정보는 서버에서 처리하도록 수정필요
+
+	/**
+	 * 댓글 등록
+	 * 
+	 * @param replySaveRequestDto
+	 */
 	@Transactional
-	//public void 댓글쓰기(User user, int boardId, Reply reqReply) {
-	public void 댓글쓰기(ReplySaveRequestDto replySaveRequestDto){
+	//public void regReply(User user, int boardId, Reply reqReply) {
+	public void regReply(ReplySaveRequestDto replySaveRequestDto){
+		// 2024-01-22. planthoon. 
+		// TODO - 보안적으로 문제가 될 수 있으므로 사용자 정보는 클라이언트에서 받지 말고 서버에서 처리하도록 수정필요
+		
 		//board.setCount(0);
 		//board.setUser(user);
 		
@@ -88,15 +123,13 @@ public class BoardService {
 		*/
 		
 		/*
-		System.out.println("replySaveRequestDto.getUserId() : " + replySaveRequestDto.getUserId());
-		
 		User user = userRepository.findById(replySaveRequestDto.getUserId()).orElseThrow(()->{
 			return new IllegalArgumentException("댓글 쓰기 실패 : 해당 사용자 ID를 찾을 수 없습니다.");
-		}); // Board 영속화
+		});
 		
 		Board board = boardRepository.findById(replySaveRequestDto.getBoardId()).orElseThrow(()->{
 			return new IllegalArgumentException("댓글 쓰기 실패 : 해당 글 ID를 찾을 수 없습니다.");
-		}); // Board 영속화
+		});
 		
 		Reply reply = Reply.builder().
 			content(replySaveRequestDto.getContent()).
@@ -112,11 +145,16 @@ public class BoardService {
 		replyRepository.save(reply);
 		*/
 		
-		replyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
+		replyRepository.insertReply(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
 	}
 	
+	/**
+	 * 댓글 삭제
+	 * 
+	 * @param replyId
+	 */
 	@Transactional
-	public void 댓글삭제(int replyId){
+	public void delReply(int replyId){
 		replyRepository.deleteById(replyId);
 	}
 }

@@ -16,10 +16,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * 메타코딩 강좌 그대로 따라서 만든 클래스
- */
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
