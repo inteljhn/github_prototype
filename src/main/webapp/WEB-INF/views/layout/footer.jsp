@@ -7,7 +7,9 @@
 <div class="mt-5 p-4 text-white text-center" style="background-color:#d4d9e3;">
 	<div style="background-color:#d4d9e3;">
 		<p>Created by planthoon</p>
+		<%--
 		<p>📧 Mail : planthoon@naver.com</p>
+		--%>
 	</div>
 </div>
 
